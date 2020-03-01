@@ -1,2 +1,2 @@
-# detox
-LancerHacks 2020
+# civitas
+Discord bot that blocks harassing messages
