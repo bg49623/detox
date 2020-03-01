@@ -1,4 +1,4 @@
-# civitas
+# Detox
 Discord bot that blocks harassing messages
 
 
