@@ -1,7 +1,7 @@
 import tensorflow as tf
 import keras
 import numpy as np
-
+import pickle
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
 
@@ -35,12 +35,15 @@ model = civitas_model()
 model.summary()
 model.compile(optimizer='adam',loss='categorical_crossentropy',metrics = ['accuracy', 'categorical_crossentropy'])
 
-model.load_weights('civitas-2class.h5')
+model.load_weights('civitas-2class-fixed.h5')
 
-def inferToxic(text):
+def infer_list(text):
+
     seq = tokenizer.texts_to_sequences(text)
-
     max_len = 200
     pad_seq = pad_sequences(seq,maxlen=max_len)
 
     return (model.predict(pad_seq)[0][1])
+
+def infer(text):
+    return infer_list([text])
